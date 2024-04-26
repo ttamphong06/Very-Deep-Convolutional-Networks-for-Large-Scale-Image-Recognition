@@ -21,7 +21,7 @@ def get_args():
     parser = argparse.ArgumentParser("""Very Deep Convolutional Networks for Large Scale Image Recognition""")
     parser.add_argument('-t', '--train', type=str, default='train', help="""required image dataset for training a model.
                                                                            It must be in the data directory """)
-    parser.add_argument('-v', '--val', type=str, default='val', help="""required image dataset for training a model.
+    parser.add_argument('-v', '--val', type=str, default='val_', help="""required image dataset for training a model.
                                                                               It must be in the data directory """)
     parser.add_argument('-b', '--batchsize', type=int, choices=[64,128,256, 512], default=64, help='select number of samples to load from dataset')
     parser.add_argument('-e', '--epochs', type=int, choices=[50, 100, 150], default=50)
@@ -36,11 +36,10 @@ def get_args():
     return args
 
 def train(opt):
-    traindata, trainGenerator, classes = preprocess(path='C:/Users/ADMIN/Downloads/ISIC_2019_Training_Input'+os.sep+opt.train, batchsize=opt.batchsize,
+    traindata, trainGenerator, classes = preprocess(path='./data'+os.sep+opt.train, batchsize=opt.batchsize,
                                                     imagesize=opt.imagesize, shuffle=True)
-    valdata, validationGenerator, classes = preprocess(path='C:/Users/ADMIN/Downloads/ISIC_2019_Training_Input'+os.sep+opt.val, batchsize=opt.batchsize,
+    valdata, validationGenerator, classes = preprocess(path='./data'+os.sep+opt.val, batchsize=opt.batchsize,
                                                       imagesize=opt.imagesize, shuffle=True)
-    print(validationGenerator.dataset)
     # print(iter(trainGenerator).__next__())
 
     num_channels = iter(trainGenerator).__next__()[0].size()[1]
@@ -52,22 +51,14 @@ def train(opt):
         path_v = 'results/VdcnnIR_val_{}.txt'.format(opt.depth)
     if os.path.exists(path_t):
         os.remove(path_t)
-        #os.mknod(path_t)
-        cm_fd = open(path_t, "w")
-        cm_fd.close()
+        os.mknod(path_t)
     else:
-        #os.mknod(path_t)
-        cm_fd = open(path_t, "w")
-        cm_fd.close()
+        os.mknod(path_t)
     if os.path.exists(path_v):
         os.remove(path_v)
-        #os.mknod(path_v)
-        cm_fd = open(path_v, "w")
-        cm_fd.close()
+        os.mknod(path_v)
     else:
-        #os.mknod(path_v)
-        cm_fd = open(path_v, "w")
-        cm_fd.close()
+        os.mknod(path_v)
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     if opt.conv1_1 and opt.depth==16:
         model = Vgg(num_channels=num_channels,num_classes=classes,depth=opt.depth, initialize_weights=True,
