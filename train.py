@@ -36,9 +36,9 @@ def get_args():
     return args
 
 def train(opt):
-    traindata, trainGenerator, classes = preprocess(path='C:/Users/ADMIN/Downloads/ISIC_2019_Training_Input'+os.sep+opt.train, batchsize=opt.batchsize,
+    traindata, trainGenerator, classes = preprocess(path='./data'+os.sep+opt.train, batchsize=opt.batchsize,
                                                     imagesize=opt.imagesize, shuffle=True)
-    valdata, validationGenerator, classes = preprocess(path='C:/Users/ADMIN/Downloads/ISIC_2019_Training_Input'+os.sep+opt.val, batchsize=opt.batchsize,
+    valdata, validationGenerator, classes = preprocess(path='./data'+os.sep+opt.val, batchsize=opt.batchsize,
                                                       imagesize=opt.imagesize, shuffle=True)
     print(validationGenerator.dataset)
     # print(iter(trainGenerator).__next__())
