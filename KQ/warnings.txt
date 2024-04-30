@@ -1,0 +1,35 @@
+Dataset ImageFolder
+    Number of datapoints: 2529
+    Root Location: ./data\val
+    Transforms (if any): Compose(
+                             Scale(size=(64, 64), interpolation=PIL.Image.BILINEAR)
+                             RandomHorizontalFlip(p=0.5)
+                             ToTensor()
+                             Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))
+                         )
+    Target Transforms (if any): None
+Iter: [1/286]	 Epoch: [1/50]	 Loss: 2.179818868637085	 Acc: 0.21875
+Iter: [2/286]	 Epoch: [1/50]	 Loss: 7.349878787994385	 Acc: 0.515625
+Iter: [3/286]	 Epoch: [1/50]	 Loss: 4.208989143371582	 Acc: 0.140625
+Iter: [4/286]	 Epoch: [1/50]	 Loss: 2.0801491737365723	 Acc: 0.203125
+Iter: [5/286]	 Epoch: [1/50]	 Loss: 2.084760904312134	 Acc: 0.171875
+Iter: [6/286]	 Epoch: [1/50]	 Loss: 1.953079342842102	 Acc: 0.46875
+Iter: [7/286]	 Epoch: [1/50]	 Loss: 1.8157668113708496	 Acc: 0.53125
+Iter: [8/286]	 Epoch: [1/50]	 Loss: 1.439366340637207	 Acc: 0.5
+Iter: [9/286]	 Epoch: [1/50]	 Loss: 1.4690961837768555	 Acc: 0.578125
+Iter: [10/286]	 Epoch: [1/50]	 Loss: 1.5535542964935303	 Acc: 0.46875
+Iter: [11/286]	 Epoch: [1/50]	 Loss: 1.4021682739257812	 Acc: 0.5625
+Iter: [12/286]	 Epoch: [1/50]	 Loss: 1.4813098907470703	 Acc: 0.421875
+Iter: [13/286]	 Epoch: [1/50]	 Loss: 1.5384880304336548	 Acc: 0.5
+Iter: [14/286]	 Epoch: [1/50]	 Loss: 1.3450325727462769	 Acc: 0.546875
+Iter: [15/286]	 Epoch: [1/50]	 Loss: 1.6772899627685547	 Acc: 0.453125
+...
+Iter: [39/40]	 Epoch: [27/50]	 Loss: 0.876927375793457	 Acc: 0.640625
+Iter: [40/40]	 Epoch: [27/50]	 Loss: 1.2183884382247925	 Acc: 0.5151515151515151
+Loss:0.9442399444199212 doesn't decreased from 0.9439087960973659
+0.9439087960973659
+Output is truncated. View as a scrollable element or open in a text editor. Adjust cell output settings...
+c:\ProgramData\Anaconda3\lib\site-packages\torchvision\transforms\transforms.py:187: UserWarning: The use of the transforms.Scale transform is deprecated, please use transforms.Resize instead.
+  warnings.warn("The use of the transforms.Scale transform is deprecated, " +
+train.py:84: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  plt.figure(figsize=(10,8))

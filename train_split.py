@@ -10,7 +10,9 @@ data_train =  pd.read_csv(data_train_path)
 
 train_path = './train'
 
-train_base = './ISIC_2019_Training_Input/'
+
+
+train_base = '/datat'
 
 for label in data_train:
     if label != 'image':
@@ -18,12 +20,21 @@ for label in data_train:
         # Nếu chưa tồn tại, tạo mới
             os.makedirs('./train/' + label)
 
-for label in data_train:
-    count = 0
-    for t in data_train[label]:
-        if t == 1:
-            count+=1
-    print(f'{label}: {count}')
+        if not os.path.exists('./val/' + label):
+        # Nếu chưa tồn tại, tạo mới
+            os.makedirs('./val/' + label)
+
+        if not os.path.exists('./test/' + label):
+        # Nếu chưa tồn tại, tạo mới
+            os.makedirs('./test/' + label)
+      
+
+# for label in data_train:
+#     count = 0
+#     for t in data_train[label]:
+#         if t == 1:
+#             count+=1
+#     print(f'{label}: {count}')
 
 for label in data_train:
     for i in range(len(data_train)):

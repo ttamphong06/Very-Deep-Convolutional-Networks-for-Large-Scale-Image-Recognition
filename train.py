@@ -25,7 +25,7 @@ def get_args():
                                                                               It must be in the data directory """)
     parser.add_argument('-b', '--batchsize', type=int, choices=[64,128,256, 512], default=64, help='select number of samples to load from dataset')
     parser.add_argument('-e', '--epochs', type=int, choices=[50, 100, 150], default=50)
-    parser.add_argument('-d', '--depth', type=int, choices=[11,13,16,19], default=11, help='depth of the deep learning model')
+    parser.add_argument('-d', '--depth', type=int, choices=[11,13,16,19], default=16, help='depth of the deep learning model')
     parser.add_argument('-c11', '--conv1_1', action='store_true', default=False,
                         help="""setting it True will replace some of the 3x3 Conv layers with 1x1 Conv layers in the 16 layer network""")
     parser.add_argument('-es', '--early_stopping', type=int, default= 6, help="""early stopping is used to stop training of network, 
@@ -45,8 +45,8 @@ def train(opt):
 
     num_channels = iter(trainGenerator).__next__()[0].size()[1]
     if opt.conv1_1 and opt.depth == 16:
-        path_t = 'results/VdcnnIR_train_C11_{}.txt'.format(opt.depth)
-        path_v = 'results/VdcnnIR_val_C11_{}.txt'.format(opt.depth)
+        path_t = 'results/VdcnnIR_train_C16_{}.txt'.format(opt.depth)
+        path_v = 'results/VdcnnIR_val_C16_{}.txt'.format(opt.depth)
     else:
         path_t = 'results/VdcnnIR_train_{}.txt'.format(opt.depth)
         path_v = 'results/VdcnnIR_val_{}.txt'.format(opt.depth)
