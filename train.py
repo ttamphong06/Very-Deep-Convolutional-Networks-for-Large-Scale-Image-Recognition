@@ -2,7 +2,7 @@
 """
 @author: Prabhu <prabhu.appalapuri@gmail.com>
 """
-
+# VGG 16-19
 import os
 import argparse
 import torch
